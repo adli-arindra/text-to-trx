@@ -12,3 +12,13 @@ export type {
   ParseContext,
   ParseOptions,
 } from './types';
+
+export type { LanguagePack, NumberWords, DateWords, AccountPhraseWords } from './lang/types';
+export { en } from './lang/en';
+
+export type {
+  TransactionTypeDefinition,
+  TypeRegistry,
+  CreateTypeRegistryOptions,
+} from './registry/types';
+export { createTypeRegistry } from './registry/types';

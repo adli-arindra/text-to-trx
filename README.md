@@ -9,8 +9,8 @@ Fully offline, deterministic, rule-based with no network calls, no API keys, no 
 ## Goals
 
 - Parse plain text (e.g. output of an on-device speech recognizer) into transactions with type, amount, name, category, account, date, and a per-field confidence score.
-- English only for now, with a swappable language-pack architecture for future languages.
-- Extensible transaction types (`expense`, `income`, `transfer` ship by default).
+- English only for now, with a swappable language-pack architecture for future languages. The `en` pack is exported, along with the `LanguagePack` interface for adding new languages.
+- Extensible transaction types (`expense`, `income`, `transfer` ship by default). `createTypeRegistry` resolves default and app-registered types to their keyword lists.
 - Stateless: the library stores nothing, the app passes in everything it needs on each call.
 
 ## License
