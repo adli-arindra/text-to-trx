@@ -1,0 +1,19 @@
+{
+  "name": "text-to-trx",
+  "version": "0.1.0",
+  "description": "Turn a spoken-style English sentence into structured money transactions, fully offline and rule-based.",
+  "license": "MIT",
+  "author": "Adli Arindra",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adli-arindra/text-to-trx.git"
+  },
+  "keywords": [
+    "nlp",
+    "parser",
+    "finance",
+    "react-native",
+    "speech-to-text"
+  ],
+  "sideEffects": false
+}
