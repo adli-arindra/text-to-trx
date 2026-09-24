@@ -235,6 +235,7 @@ export function convertNumbers(text: string, language: LanguagePack): ConvertNum
         const after = tokens[windowEnd]?.text.toLowerCase();
         if (after !== undefined && language.currencyMarkers.includes(after)) {
           hasCurrencyMarker = true;
+          windowEnd += 1;
         }
 
         const gap = text.slice(cursor, token.start);

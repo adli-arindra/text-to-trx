@@ -29,6 +29,12 @@ describe('extractAccounts', () => {
     expect(result.usingMarker).toBe('on');
   });
 
+  it('lets a later, unambiguous using marker override an earlier "on" match', () => {
+    const result = extractAccounts('spent 15 on drinks with cash', en);
+    expect(result.using).toBe('cash');
+    expect(result.usingMarker).toBe('with');
+  });
+
   it('extracts both "from" and "to" accounts for a transfer', () => {
     const result = extractAccounts('transferred 200 from checking to savings', en);
     expect(result.from).toBe('checking');
@@ -39,6 +45,11 @@ describe('extractAccounts', () => {
     const result = extractAccounts('moved 50 bucks into my savings', en);
     expect(result.to).toBe('savings');
     expect(result.from).toBeNull();
+  });
+
+  it('strips trailing punctuation from the captured value', () => {
+    const result = extractAccounts('bought groceries with my visa,', en);
+    expect(result.using).toBe('visa');
   });
 
   it('keeps only the first occurrence of each marker category', () => {

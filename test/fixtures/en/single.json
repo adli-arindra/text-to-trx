@@ -1,0 +1,142 @@
+[
+  {
+    "id": "single-001",
+    "input": "spent 12 on lunch",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "expense", "amount": 12, "name": "Lunch", "category": "Food" }],
+    "tags": ["single", "critical"]
+  },
+  {
+    "id": "single-002",
+    "input": "lunch 12",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 12, "name": "Lunch", "category": "Food" }],
+    "tags": ["single"]
+  },
+  {
+    "id": "single-003",
+    "input": "i paid twenty five dollars for gas this morning",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      {
+        "type": "expense",
+        "amount": 25,
+        "name": "Gas",
+        "category": "Transport",
+        "date": "2026-09-24"
+      }
+    ],
+    "tags": ["single", "words", "critical"]
+  },
+  {
+    "id": "single-004",
+    "input": "got paid 3k salary",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "income", "amount": 3000, "name": "Salary", "category": "Salary" }],
+    "tags": ["single", "shorthand", "income", "critical"]
+  },
+  {
+    "id": "single-005",
+    "input": "received 1.5 million from the client last friday",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "income", "amount": 1500000 }],
+    "tags": ["single", "shorthand", "income", "critical"]
+  },
+  {
+    "id": "single-006",
+    "input": "bought groceries with my visa, 64.20",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      {
+        "type": "expense",
+        "amount": 64.2,
+        "name": "Groceries",
+        "category": "Groceries",
+        "account": "Visa Platinum"
+      }
+    ],
+    "tags": ["single", "account", "critical"]
+  },
+  {
+    "id": "single-007",
+    "input": "bought 3 coffees for 12",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "expense", "amount": 12 }],
+    "tags": ["single", "quantity", "critical"]
+  },
+  {
+    "id": "single-008",
+    "input": "paid 40 for boba",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "expense", "amount": 40, "name": "Boba", "category": null }],
+    "tags": ["single", "unknown-name"]
+  },
+  {
+    "id": "single-009",
+    "input": "two fifty for parking",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 2.5, "name": "Parking", "category": "Transport" }],
+    "tags": ["single", "ambiguous-amount"]
+  },
+  {
+    "id": "single-010",
+    "input": "paid rent 1200",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "expense", "amount": 1200, "name": "Rent", "category": "Rent" }],
+    "tags": ["single", "critical"]
+  },
+  {
+    "id": "single-011",
+    "input": "spent 9.99 on netflix",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "type": "expense", "amount": 9.99, "name": "Netflix", "category": "Entertainment" }
+    ],
+    "tags": ["single", "critical"]
+  },
+  {
+    "id": "single-012",
+    "input": "spent forty on gas",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "expense", "amount": 40, "name": "Gas", "category": "Transport" }],
+    "tags": ["single", "words"]
+  },
+  {
+    "id": "single-013",
+    "input": "earned 500 freelance",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "income", "amount": 500 }],
+    "tags": ["single", "income", "critical"]
+  },
+  {
+    "id": "single-014",
+    "input": "spent 15 on drinks with cash",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "type": "expense", "amount": 15, "name": "Drinks", "category": "Food", "account": "Cash" }
+    ],
+    "tags": ["single", "account", "critical"]
+  },
+  {
+    "id": "single-015",
+    "input": "spent 20 on eating out",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "expense", "amount": 20, "category": "Food" }],
+    "tags": ["single", "alias", "critical"]
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "id": "food",
+      "name": "Food",
+      "type": "expense",
+      "aliases": ["meal", "eating out", "dining"]
+    },
+    {
+      "id": "groceries",
+      "name": "Groceries",
+      "type": "expense",
+      "aliases": ["grocery", "supermarket"]
+    },
+    { "id": "transport", "name": "Transport", "type": "expense", "aliases": ["taxi", "fuel"] },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "type": "expense",
+      "aliases": ["movies", "streaming"]
+    },
+    { "id": "rent", "name": "Rent", "type": "expense" },
+    {
+      "id": "utilities",
+      "name": "Utilities",
+      "type": "expense",
+      "aliases": ["electricity", "water", "internet"]
+    },
+    { "id": "salary", "name": "Salary", "type": "income", "aliases": ["paycheck", "wages"] },
+    { "id": "freelance", "name": "Freelance", "type": "income", "aliases": ["contract", "gig"] }
+  ],
+  "accounts": [
+    { "id": "checking", "name": "Checking" },
+    { "id": "savings", "name": "Savings" },
+    { "id": "visa", "name": "Visa Platinum", "aliases": ["visa", "credit card"] },
+    { "id": "debit", "name": "Debit Card", "aliases": ["debit", "debit card"] },
+    { "id": "cash", "name": "Cash" }
+  ],
+  "knownNames": [
+    { "name": "Lunch", "categoryId": "food", "count": 20 },
+    { "name": "Coffee", "categoryId": "food", "count": 30 },
+    { "name": "Groceries", "categoryId": "groceries", "count": 15 },
+    { "name": "Uber", "categoryId": "transport", "count": 25 },
+    { "name": "Gas", "categoryId": "transport", "count": 10 },
+    { "name": "Parking", "categoryId": "transport", "count": 5 },
+    { "name": "Netflix", "categoryId": "entertainment", "count": 8 },
+    { "name": "Rent", "categoryId": "rent", "count": 12 },
+    { "name": "Salary", "categoryId": "salary", "count": 6 },
+    { "name": "Drinks", "categoryId": "food", "count": 4 },
+    { "name": "Sandwich", "categoryId": "food", "count": 3 }
+  ]
+}

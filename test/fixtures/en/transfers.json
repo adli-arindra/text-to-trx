@@ -1,0 +1,48 @@
+[
+  {
+    "id": "transfers-001",
+    "input": "transferred 200 from checking to savings",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "type": "transfer", "amount": 200, "account": "Checking", "toAccount": "Savings" }
+    ],
+    "tags": ["transfers", "critical"]
+  },
+  {
+    "id": "transfers-002",
+    "input": "moved 50 bucks into my savings",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "transfer", "amount": 50, "toAccount": "Savings" }],
+    "tags": ["transfers", "critical"]
+  },
+  {
+    "id": "transfers-003",
+    "input": "transferred 1000 from savings to checking",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "type": "transfer", "amount": 1000, "account": "Savings", "toAccount": "Checking" }
+    ],
+    "tags": ["transfers", "critical"]
+  },
+  {
+    "id": "transfers-004",
+    "input": "sent 300 to savings",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "transfer", "amount": 300, "toAccount": "Savings" }],
+    "tags": ["transfers", "critical"]
+  },
+  {
+    "id": "transfers-005",
+    "input": "moved 20k from savings to checking",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "type": "transfer", "amount": 20000, "account": "Savings", "toAccount": "Checking" }
+    ],
+    "tags": ["transfers", "shorthand", "critical"]
+  }
+]

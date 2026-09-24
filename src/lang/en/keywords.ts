@@ -2,7 +2,7 @@ export const fillers = ['um', 'uh', 'er', 'like', 'you know', 'so'];
 
 export const stopwords = ['on', 'for', 'the', 'a', 'an', 'my', 'some', 'to', 'of'];
 
-export const connectors = ['and', 'then', 'also', 'plus', 'after that'];
+export const connectors = ['and then', 'and', 'then', 'also', 'plus', 'after that'];
 
 export const currencyMarkers = ['dollar', 'dollars', 'buck', 'bucks', 'usd', '$'];
 

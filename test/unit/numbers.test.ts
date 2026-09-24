@@ -109,9 +109,9 @@ describe('convertNumbers', () => {
     expect(result.matches[0].value).toBe(120);
   });
 
-  it('tags a currency marker without consuming it from the text', () => {
+  it('tags a currency marker and consumes it from the text', () => {
     const result = convertNumbers('spent fifty dollars on gas', en);
-    expect(result.text).toBe('spent 50 dollars on gas');
+    expect(result.text).toBe('spent 50 on gas');
     expect(result.matches[0].hasCurrencyMarker).toBe(true);
   });
 

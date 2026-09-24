@@ -34,6 +34,7 @@
     "build": "tsup",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
+    "eval": "tsx scripts/eval.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -48,6 +49,7 @@
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.9",
     "tsup": "^8.5.1",
+    "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.70.1",
     "vitest": "^5.0.1"

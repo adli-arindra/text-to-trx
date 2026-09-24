@@ -20,7 +20,7 @@ function removeFirstOccurrence(text: string, phrase: string): string {
   return text.replace(re, ' ');
 }
 
-function removeAmountSpans(segment: Segment): string {
+export function removeAmountSpans(segment: Segment): string {
   let text = segment.text;
   const spans = segment.amounts
     .map((a) => ({ start: a.start - segment.start, end: a.end - segment.start }))
@@ -51,7 +51,7 @@ function stripStopwords(text: string, stopwords: string[]): string {
   const stopSet = new Set(stopwords.map((s) => s.toLowerCase()));
   return text
     .split(/\s+/)
-    .filter((token) => token && !stopSet.has(token.toLowerCase()))
+    .filter((token) => token && /[a-z0-9]/i.test(token) && !stopSet.has(token.toLowerCase()))
     .join(' ');
 }
 
@@ -67,10 +67,14 @@ export function extractName(input: NameExtractionInput): string {
     text = removeFirstOccurrence(text, keywordMatch.keyword);
   }
 
-  // "on" doubles as both an account-using marker and a plain preposition
-  // ("spent 12 on lunch"), so removing it here would eat the name itself.
   text = removeMarkerAndValue(text, language.accountPhrases.from, accounts.from);
   text = removeMarkerAndValue(text, language.accountPhrases.to, accounts.to);
+
+  // "on" doubles as both an account-using marker and a plain preposition
+  // ("spent 12 on lunch"), so removing it here would eat the name itself.
+  if (accounts.usingMarker !== 'on') {
+    text = removeMarkerAndValue(text, language.accountPhrases.using, accounts.using);
+  }
 
   return stripStopwords(text, language.stopwords).trim().replace(/\s+/g, ' ');
 }

@@ -62,14 +62,25 @@ export function extractAccounts(text: string, language: LanguagePack): AccountEx
 
   for (let i = 0; i < markers.length; i++) {
     const marker = markers[i]!;
-    if (result[marker.category] !== null) continue;
+
+    if (marker.category === 'using') {
+      const isWeakMarker = marker.text === 'on';
+      const currentIsWeak = result.usingMarker === 'on';
+      if (result.using !== null && !(currentIsWeak && !isWeakMarker)) continue;
+    } else if (result[marker.category] !== null) {
+      continue;
+    }
 
     const spanEnd = markers[i + 1]?.index ?? text.length;
-    const raw = text.slice(marker.end, spanEnd).trim();
+    const raw = text.slice(marker.end, spanEnd).replace(/[,.]/g, ' ').trim();
     const cleaned = stripLeadingStopwords(raw, language.stopwords);
-    result[marker.category] = cleaned || null;
-    if (marker.category === 'using' && cleaned) {
+    if (!cleaned) continue;
+
+    if (marker.category === 'using') {
+      result.using = cleaned;
       result.usingMarker = marker.text;
+    } else {
+      result[marker.category] = cleaned;
     }
   }
 

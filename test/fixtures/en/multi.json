@@ -1,0 +1,92 @@
+[
+  {
+    "id": "multi-001",
+    "input": "spent 10 on coffee and 20 on lunch",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "type": "expense", "amount": 10, "name": "Coffee", "category": "Food" },
+      { "type": "expense", "amount": 20, "name": "Lunch", "category": "Food" }
+    ],
+    "tags": ["multi", "critical"]
+  },
+  {
+    "id": "multi-002",
+    "input": "coffee 4.50, sandwich 8",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "amount": 4.5, "name": "Coffee", "category": "Food" },
+      { "amount": 8, "name": "Sandwich", "category": "Food" }
+    ],
+    "tags": ["multi", "critical"]
+  },
+  {
+    "id": "multi-003",
+    "input": "yesterday i spent 12 on lunch and like 4.50 for coffee",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      {
+        "type": "expense",
+        "amount": 12,
+        "name": "Lunch",
+        "category": "Food",
+        "date": "2026-09-23"
+      },
+      {
+        "type": "expense",
+        "amount": 4.5,
+        "name": "Coffee",
+        "category": "Food",
+        "date": "2026-09-23"
+      }
+    ],
+    "tags": ["multi", "relative-date", "filler", "critical"]
+  },
+  {
+    "id": "multi-004",
+    "input": "spent 10 on coffee and 20 on uber and 5 on parking",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "amount": 10, "name": "Coffee", "category": "Food" },
+      { "amount": 20, "name": "Uber", "category": "Transport" },
+      { "amount": 5, "name": "Parking", "category": "Transport" }
+    ],
+    "tags": ["multi", "critical"]
+  },
+  {
+    "id": "multi-005",
+    "input": "spent 30 on gas then 15 on drinks",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "amount": 30, "category": "Transport" },
+      { "amount": 15, "category": "Food" }
+    ],
+    "tags": ["multi", "critical"]
+  },
+  {
+    "id": "multi-006",
+    "input": "got paid 3k salary and spent 1200 on rent",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "type": "income", "amount": 3000, "category": "Salary" },
+      { "type": "expense", "amount": 1200, "category": "Rent" }
+    ],
+    "tags": ["multi", "income", "critical"]
+  },
+  {
+    "id": "multi-007",
+    "input": "um so yesterday i spent like 30 on uber and then 15 on drinks",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [
+      { "amount": 30, "name": "Uber", "category": "Transport", "date": "2026-09-23" },
+      { "amount": 15, "name": "Drinks", "category": "Food", "date": "2026-09-23" }
+    ],
+    "tags": ["multi", "filler", "relative-date", "critical"]
+  }
+]

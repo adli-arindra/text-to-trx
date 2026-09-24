@@ -1,0 +1,66 @@
+[
+  {
+    "id": "edge-001",
+    "input": "spent money on lunch",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": null, "name": null, "category": null }],
+    "tags": ["edge", "missing-amount"]
+  },
+  {
+    "id": "edge-002",
+    "input": "paid 40 for boba",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 40, "category": null }],
+    "tags": ["edge", "unknown-name", "critical"]
+  },
+  {
+    "id": "edge-003",
+    "input": "spent 20 on groceries",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 20, "category": "Groceries" }],
+    "tags": ["edge", "category-only", "critical"]
+  },
+  {
+    "id": "edge-004",
+    "input": "um so like spent 12 on lunch",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 12, "name": "Lunch", "category": "Food" }],
+    "tags": ["edge", "filler", "critical"]
+  },
+  {
+    "id": "edge-005",
+    "input": "hello there",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [],
+    "tags": ["edge", "unparsed"]
+  },
+  {
+    "id": "edge-006",
+    "input": "got 20 back for lunch",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": null, "amount": 20, "category": null }],
+    "tags": ["edge", "type-conflict"]
+  },
+  {
+    "id": "edge-007",
+    "input": "spent 3 12 lunch",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": null, "category": "Food" }],
+    "tags": ["edge", "multiple-amounts", "critical"]
+  },
+  {
+    "id": "edge-008",
+    "input": "spent 20 with my crypto wallet",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 20, "account": null }],
+    "tags": ["edge", "unknown-account", "critical"]
+  }
+]

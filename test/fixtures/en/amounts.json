@@ -1,0 +1,106 @@
+[
+  {
+    "id": "amounts-001",
+    "input": "spent 1,200.50 on rent",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 1200.5 }],
+    "tags": ["amounts", "digits", "critical"]
+  },
+  {
+    "id": "amounts-002",
+    "input": "spent fifty on gas",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 50 }],
+    "tags": ["amounts", "words", "critical"]
+  },
+  {
+    "id": "amounts-003",
+    "input": "spent twenty five on lunch",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 25 }],
+    "tags": ["amounts", "words", "critical"]
+  },
+  {
+    "id": "amounts-004",
+    "input": "spent one hundred and twenty on groceries",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 120 }],
+    "tags": ["amounts", "words", "critical"]
+  },
+  {
+    "id": "amounts-005",
+    "input": "spent a hundred on rent",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 100 }],
+    "tags": ["amounts", "words", "critical"]
+  },
+  {
+    "id": "amounts-006",
+    "input": "spent two point five on parking",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 2.5 }],
+    "tags": ["amounts", "words", "critical"]
+  },
+  {
+    "id": "amounts-007",
+    "input": "spent 50k on rent",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 50000 }],
+    "tags": ["amounts", "shorthand", "critical"]
+  },
+  {
+    "id": "amounts-008",
+    "input": "spent 1.5k on rent",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 1500 }],
+    "tags": ["amounts", "shorthand", "critical"]
+  },
+  {
+    "id": "amounts-009",
+    "input": "received 2m from the sale",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "type": "income", "amount": 2000000 }],
+    "tags": ["amounts", "shorthand", "income", "critical"]
+  },
+  {
+    "id": "amounts-010",
+    "input": "spent twenty k on rent",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 20000 }],
+    "tags": ["amounts", "shorthand", "words", "critical"]
+  },
+  {
+    "id": "amounts-011",
+    "input": "spent 3 thousand on rent",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 3000 }],
+    "tags": ["amounts", "words", "critical"]
+  },
+  {
+    "id": "amounts-012",
+    "input": "spent 50 dollars on gas",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 50 }],
+    "tags": ["amounts", "currency-marker", "critical"]
+  },
+  {
+    "id": "amounts-013",
+    "input": "spent 50 bucks on gas",
+    "referenceDate": "2026-09-24",
+    "context": "default",
+    "expected": [{ "amount": 50 }],
+    "tags": ["amounts", "currency-marker", "critical"]
+  }
+]
