@@ -17,11 +17,7 @@ export function matchName(candidate: string, knownNames: KnownName[]): NameMatch
   for (const entry of knownNames) {
     const score = similarity(candidate, entry.name);
     if (score < MIN_CONFIDENCE) continue;
-    if (
-      !best ||
-      score > best.score ||
-      (score === best.score && entry.count > best.entry.count)
-    ) {
+    if (!best || score > best.score || (score === best.score && entry.count > best.entry.count)) {
       best = { entry, score };
     }
   }

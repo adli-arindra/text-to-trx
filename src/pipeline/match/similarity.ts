@@ -31,11 +31,7 @@ export function levenshteinSimilarity(a: string, b: string): number {
 }
 
 function tokenize(text: string): string[] {
-  return text
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean);
+  return text.trim().toLowerCase().split(/\s+/).filter(Boolean);
 }
 
 const TOKEN_MATCH_THRESHOLD = 0.75;
