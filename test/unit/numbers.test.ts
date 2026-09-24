@@ -131,4 +131,9 @@ describe('convertNumbers', () => {
     const result = convertNumbers('coffee 4.50 and a sandwich 8', en);
     expect(result.matches.map((m) => m.value)).toEqual([4.5, 8]);
   });
+
+  it('recognizes a digit amount with trailing punctuation attached', () => {
+    const result = convertNumbers('coffee 4.50, sandwich 8', en);
+    expect(result.matches.map((m) => m.value)).toEqual([4.5, 8]);
+  });
 });

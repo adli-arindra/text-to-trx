@@ -169,9 +169,11 @@ interface TextToken {
   end: number;
 }
 
+const TEXT_TOKEN_RE = /\$?\d+(?:[.,]\d+)*|[^\s,.]+|[,.]/g;
+
 function tokenizeText(text: string): TextToken[] {
   const tokens: TextToken[] = [];
-  const regex = /\S+/g;
+  const regex = new RegExp(TEXT_TOKEN_RE);
   let match: RegExpExecArray | null;
   while ((match = regex.exec(text))) {
     tokens.push({ text: match[0], start: match.index, end: match.index + match[0].length });

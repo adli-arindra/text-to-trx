@@ -25,7 +25,7 @@ export function normalize(text: string, language: LanguagePack): NormalizeResult
   const tokens = tokenize(text);
 
   const singleFillers = new Set(
-    language.fillers.filter((f) => !f.includes(' ')).map((f) => f.toLowerCase()),
+    language.fillers.filter((f) => !f.includes(' ')).map((f) => f.toLowerCase())
   );
   const phraseFillers = language.fillers
     .filter((f) => f.includes(' '))
