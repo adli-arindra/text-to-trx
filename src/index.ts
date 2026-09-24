@@ -22,3 +22,6 @@ export type {
   CreateTypeRegistryOptions,
 } from './registry/types';
 export { createTypeRegistry } from './registry/types';
+
+export type { CreateParserOptions, Parser } from './parser';
+export { createParser } from './parser';

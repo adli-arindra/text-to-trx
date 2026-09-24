@@ -7,7 +7,7 @@ const referenceDate = new Date(2026, 8, 24); // Thursday, September 24 2026
 describe('extractDate', () => {
   it('defaults to the reference date when no phrase is present', () => {
     const result = extractDate('spent 12 on lunch', en, referenceDate);
-    expect(result.field).toEqual({ value: '2026-09-24', confidence: 0.5 });
+    expect(result.field).toEqual({ value: '2026-09-24', confidence: 0.7 });
     expect(result.matchedText).toBeNull();
   });
 

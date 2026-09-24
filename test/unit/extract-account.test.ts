@@ -8,6 +8,7 @@ describe('extractAccounts', () => {
       from: null,
       to: null,
       using: null,
+      usingMarker: null,
     });
   });
 
@@ -19,6 +20,13 @@ describe('extractAccounts', () => {
   it('extracts a "using" account for a "with" phrase', () => {
     const result = extractAccounts('bought groceries with my visa', en);
     expect(result.using).toBe('visa');
+    expect(result.usingMarker).toBe('with');
+  });
+
+  it('records "on" as the using marker so callers can treat it as ambiguous', () => {
+    const result = extractAccounts('spent 12 on lunch', en);
+    expect(result.using).toBe('lunch');
+    expect(result.usingMarker).toBe('on');
   });
 
   it('extracts both "from" and "to" accounts for a transfer', () => {

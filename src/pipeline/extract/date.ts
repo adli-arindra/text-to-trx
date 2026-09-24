@@ -201,7 +201,7 @@ export function extractDate(
   }
 
   return {
-    field: { value: formatDate(startOfDay(referenceDate)), confidence: 0.5 },
+    field: { value: formatDate(startOfDay(referenceDate)), confidence: 0.7 },
     matchedText: null,
   };
 }

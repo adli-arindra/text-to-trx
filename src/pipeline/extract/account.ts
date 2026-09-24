@@ -4,6 +4,7 @@ export interface AccountExtraction {
   from: string | null;
   to: string | null;
   using: string | null;
+  usingMarker: string | null;
 }
 
 type MarkerCategory = 'from' | 'to' | 'using';
@@ -12,6 +13,7 @@ interface Marker {
   index: number;
   end: number;
   category: MarkerCategory;
+  text: string;
 }
 
 function escapePhrase(phrase: string): string {
@@ -48,10 +50,15 @@ export function extractAccounts(text: string, language: LanguagePack): AccountEx
   while ((match = regex.exec(text))) {
     const category: MarkerCategory =
       match[1] !== undefined ? 'from' : match[2] !== undefined ? 'to' : 'using';
-    markers.push({ index: match.index, end: match.index + match[0].length, category });
+    markers.push({
+      index: match.index,
+      end: match.index + match[0].length,
+      category,
+      text: match[0].toLowerCase(),
+    });
   }
 
-  const result: AccountExtraction = { from: null, to: null, using: null };
+  const result: AccountExtraction = { from: null, to: null, using: null, usingMarker: null };
 
   for (let i = 0; i < markers.length; i++) {
     const marker = markers[i]!;
@@ -61,6 +68,9 @@ export function extractAccounts(text: string, language: LanguagePack): AccountEx
     const raw = text.slice(marker.end, spanEnd).trim();
     const cleaned = stripLeadingStopwords(raw, language.stopwords);
     result[marker.category] = cleaned || null;
+    if (marker.category === 'using' && cleaned) {
+      result.usingMarker = marker.text;
+    }
   }
 
   return result;

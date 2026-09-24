@@ -17,6 +17,7 @@ export interface NumberMatch {
 export interface ConvertNumbersResult {
   text: string;
   matches: NumberMatch[];
+  map: number[];
 }
 
 const DIGIT_RE = /^\$?(\d{1,3}(?:,\d{3})*|\d+)(\.\d+)?([km])?$/i;
@@ -185,6 +186,7 @@ export function convertNumbers(text: string, language: LanguagePack): ConvertNum
   const tokens = tokenizeText(text);
   const matches: NumberMatch[] = [];
   let outText = '';
+  const map: number[] = [];
   let cursor = 0;
   let i = 0;
 
@@ -235,9 +237,13 @@ export function convertNumbers(text: string, language: LanguagePack): ConvertNum
           hasCurrencyMarker = true;
         }
 
-        outText += text.slice(cursor, token.start);
+        const gap = text.slice(cursor, token.start);
+        for (let k = 0; k < gap.length; k++) map.push(cursor + k);
+        outText += gap;
+
         const replacement = String(parsed.value);
         const matchStart = outText.length;
+        for (let k = 0; k < replacement.length; k++) map.push(token.start);
         outText += replacement;
         matches.push({
           start: matchStart,
@@ -256,6 +262,9 @@ export function convertNumbers(text: string, language: LanguagePack): ConvertNum
     i += 1;
   }
 
-  outText += text.slice(cursor);
-  return { text: outText, matches };
+  const tail = text.slice(cursor);
+  for (let k = 0; k < tail.length; k++) map.push(cursor + k);
+  outText += tail;
+
+  return { text: outText, matches, map };
 }

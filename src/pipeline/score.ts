@@ -40,7 +40,8 @@ export function buildCategoryField(
 export function buildAccountField(
   match: AccountMatch | null,
   heardAs: string,
-  threshold: number
+  threshold: number,
+  fieldName: string = 'account'
 ): ScoredField<AccountRef> {
   if (!match) {
     return {
@@ -49,5 +50,5 @@ export function buildAccountField(
     };
   }
 
-  return scoreField({ value: match.account, confidence: match.confidence }, 'account', threshold);
+  return scoreField({ value: match.account, confidence: match.confidence }, fieldName, threshold);
 }
