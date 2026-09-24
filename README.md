@@ -16,4 +16,3 @@ Fully offline, deterministic, rule-based with no network calls, no API keys, no 
 ## License
 
 MIT
-
