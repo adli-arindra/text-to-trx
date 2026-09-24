@@ -33,11 +33,16 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "npm run build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.3",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
