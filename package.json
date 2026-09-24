@@ -1,6 +1,7 @@
 {
   "name": "text-to-trx",
   "version": "0.1.0",
+  "type": "module",
   "description": "Turn a spoken-style English sentence into structured money transactions, fully offline and rule-based.",
   "license": "MIT",
   "author": "Adli Arindra",
@@ -15,5 +16,12 @@
     "react-native",
     "speech-to-text"
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
 }
